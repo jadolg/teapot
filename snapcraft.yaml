@@ -1,0 +1,22 @@
+name: teapot
+version: 1.0.0
+summary: Teapot service
+description: Teapot service
+confinement: strict
+base: core20
+license: Apache-2.0
+grade: stable
+
+parts:
+  teapot:
+    plugin: go
+    source: .
+    source-type: local
+
+apps:
+  teapot:
+    command: bin/teapot
+    daemon: simple
+    plugs:
+      - network
+      - network-bind
